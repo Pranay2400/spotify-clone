@@ -64,3 +64,39 @@ body{
 .footer a{
     color: grey;
 }
+.right{
+    margin-top: 15px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #333232;
+}
+.header >*{
+    padding: 20px;
+}
+.spotify-playlist{
+    padding: 16px;
+}
+.spotify-playlist .card{
+    width: 200px;
+    height: 300px;
+    border-radius: 5px;
+    background-color: #252525;
+}
+
+.card img{
+    width: 90%;
+    object-fit: contain;
+    margin-left: 10px;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+.card h2{
+    font-size: 20px;
+    padding-left: 10px;
+    margin-top: 5px;    
+}
+.card p{
+    padding-left: 10px;
+}
