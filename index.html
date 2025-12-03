@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="utility.css">
-    <title>Document</title>
+    <title>Spotify - Web Player: Music for everyone</title>
 </head>
 <body>
     <div class="container flex big-black" >
@@ -20,11 +20,20 @@
             <div class="library big-grey rounded m-1 
             p-1">
                 <div class="heading">
+                    
                     <img class = "invert" src="playlist.svg" alt="playlist">
                     <h2> 
                         Your Library
                     </h2>
+                    
                 </div>
+                <div class="songList">
+                        <ul>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                    </div>
                 <div class="footer">
                 <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
                 <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
@@ -52,23 +61,46 @@
                                 stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                 </div>
-                <div class="buttons">
-                    <button>Login</button>
-                    <button>Sign up</button>
+                <div class="buttons" style="align-self: center;">
+                    <button class="signupbtn">Sign Up</button>
+                    <button class="loginbtn">Log in</button>
                 </div>
             </div>
             <div class="spotify-playlist">
                 <h1>SpotifyPlaylist</h1>
                 <div class="cardContainer">
                     <div class="card">
+                        <div class="play">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20V4L19 12L5 20Z"fill="#000" stroke="#141B34" stroke-width="1.5"stroke-linejoin="round" />
+                            </svg>
+                        </div>
                         <img src="ab67616d00001e0215750c254ace9e9dbf39d552.jpeg" alt="">
                         <h2>Gehra Hua (From "Dhurandhar")</h2>
                         <p>Shashwat Sachdev,Arijit Singh</p>
+                    </div>
+                    <div class="card">
+                        <img src="ab67616d00001e0215750c254ace9e9dbf39d552.jpeg" alt="">
+                        <h2>Gehra Hua (From "Dhurandhar")</h2>
+                        <p>Shashwat Sachdev,Arijit Singh</p>
+                    </div>
+                </div>
+                <div class="playbar">
+                    <div class="songinfo">
+
+                    </div>
+                    <div class="songbuttons">
+                        <img src="prevsong.svg" alt="">
+                        <img src="play.svg" alt="">
+                        <img src="nextsong.svg" alt="">
+                    </div>
+                    <div class="songtime">
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

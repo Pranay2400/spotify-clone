@@ -18,6 +18,7 @@ body{
 }
 .right{
     width: 75vw;
+    position: relative;
 }
 .home{
     padding: 10px;
@@ -60,17 +61,20 @@ body{
     gap: 6px;
     position: absolute;
     bottom: 0;
+    bottom: 10px ;
 }
 .footer a{
     color: grey;
 }
 .right{
     margin-top: 15px;
+
 }
 .header{
     display: flex;
     justify-content: space-between;
     background-color: #333232;
+    height: 70px;
 }
 .header >*{
     padding: 20px;
@@ -78,11 +82,12 @@ body{
 .spotify-playlist{
     padding: 16px;
 }
-.spotify-playlist .card{
+.card{
     width: 200px;
     height: 300px;
     border-radius: 5px;
     background-color: #252525;
+    position: relative;
 }
 
 .card img{
@@ -95,8 +100,81 @@ body{
 .card h2{
     font-size: 20px;
     padding-left: 10px;
-    margin-top: 5px;    
+    margin-top: 5px;  
 }
 .card p{
     padding-left: 10px;
+}
+.cardContainer{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    
+}
+.play{
+    width: 28px;
+    height: 28px;
+    background-color: #1fdf64;
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 145px;
+    right: 15px;
+    opacity: 0;
+}
+
+.signupbtn{
+    background-color: #333232;
+    color: rgb(156, 148, 148);
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding-right: 12px;
+}
+.signupbtn.honver{
+    font-weight: bold;
+    font-size: 17px;
+    color: white
+}
+.loginbtn {
+    background-color: white;
+    border-radius: 21px;
+    color: black;
+    padding: 10px;
+    width: 79px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.loginbtn:hover {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.playbar{
+    position: absolute;
+    bottom: 0;
+    background-color: #1fdf64;
+    width: 93%;
+    padding: 12px;
+}
+
+.songbuttons{
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+}
+.songList ul li {
+    list-style-type: decimal;
+    padding-top: 10px;
+
+}
+.songList ul {
+    padding-left: 20px;
 }
