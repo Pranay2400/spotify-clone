@@ -68,6 +68,7 @@ body{
 }
 .right{
     margin-top: 15px;
+    height: 95vh;
 
 }
 .header{
@@ -158,11 +159,31 @@ body{
 }
 
 .playbar{
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    bottom: 20px;
     background-color: #1fdf64;
     width: 93%;
     padding: 12px;
+    width: 70vw;
+    border-radius: 10px;
+}
+.seekbar{
+    height: 2px;
+    width: 98%;
+    border: 2px solid black;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 2px;
+}
+.circle{
+    width: 13px;
+    height: 13px;
+    border-radius: 13px;
+    background-color: black;
+    position: relative;
+    bottom: 5px;
+    left: 0%;
+    transition: left 0.5s;
 }
 
 .songbuttons{
@@ -170,11 +191,53 @@ body{
     gap: 18px;
     justify-content: center;
 }
-.songList ul li {
-    list-style-type: decimal;
-    padding-top: 10px;
-
+.songList{
+    height: 460px;
+    overflow: scroll;
+    margin-bottom: 20px;
 }
 .songList ul {
-    padding-left: 20px;
+   padding: 15px 20px;
+}
+.songList ul li{
+    list-style-type: decimal;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    padding: 12px 0;
+    border: 1px solid rgba(146, 143, 143, 0.491);
+    margin: 12px 0;
+    padding: 13px;
+    border-radius: 5px;
+}
+.songList .info {
+    font-size: 13px;
+    width: 344px;
+}
+.playnow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playnow span{
+    font-size: 12px;
+    width: 64px;
+}
+
+/* Hide scrollbar for Chrome, Safari, Edge */
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* Hide scrollbar for Firefox */
+body {
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar for Internet Explorer + old Edge */
+body {
+    -ms-overflow-style: none;
 }

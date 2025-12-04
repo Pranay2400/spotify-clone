@@ -13,25 +13,59 @@ async function getSongs() {
         const element = as[index];
         if (element.href.endsWith(".mp3"))
             {
-            songs.push(element.href.split("/songs/")[1]);
+            const decoded = decodeURIComponent(element.href);
+            const fileName = decoded.substring(decoded.lastIndexOf("/") + 1);
+            songs.push(fileName);
             }
         }
     return songs;
 }
-async function main(){    
+
+
+const playMusic = (track)=>{
+    let audio = new Audio("/songs/" + track)
+}
+async function main() {
+
+    let currentSong;
     let songs = await getSongs();
     console.log(songs);
 
-    let songUL = document.querySelector(".songList ").getElementsByTagName("ul") [0]
-    for (const song of songs){
-        songUL.innerHTML = songUL.innerHTML + song;
+    const trackDetails = {
+        "Chanakya": "Rishab Rikhiram Sharma",
+        "Gehra Hua": "Shashwat Sachdev",
+        "Kya Mujhe Pyar": "K.K.",
+        "Labon Ko": "K.K.",
+        "Sundari": "Sanju Rathod"
+    };
+
+    let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
+
+    for (const song of songs) {
+        let cleanName = decodeURIComponent(song)
+            .replace(/^\\songs\\/i, "")
+            .replace(/_/g, " ")
+            .replace(".mp3", "");
+
+        let artist = trackDetails[cleanName] ;
+
+
+        let li = document.createElement("li");
+        li.innerHTML = `
+            <li><img class="invert" src="music.svg" alt="">
+            <div class="info">
+                <div>${cleanName}</div>
+            </div>
+            <div class="playnow">
+                <span>Play Now</span>
+                <img class="invert" src="play.svg" alt="">
+            </div></li>`;
     }
 
-    var audio = new Audio(songs[0]);
-    // audio.play(); 
+    // Attach an event listener to each song
+    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e=>{
+        console.log(e.target.getElementsByTagName("div")[0]);
+    })
 
-    audio.addEventListener("loadeddata", () => {
-        console.log(audio.duration, audio.currentSrc, audio.currentTime)
-    });
 }
 main();
