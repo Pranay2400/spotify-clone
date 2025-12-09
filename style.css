@@ -11,6 +11,9 @@ body{
     background-color: black;
     color: white;
 }
+.close{
+    display: none;
+}
 
 .left{
     width: 25vw;
@@ -20,8 +23,23 @@ body{
     width: 75vw;
     position: relative;
 }
+
+.timevol{
+    display: flex;
+}
+.volume{
+    display: flex;
+}
+.range{
+    align-items: center;
+    margin-left: 8px;
+}
+
 .home{
     padding: 10px;
+}
+.home .logo img{
+    width: 100px;
 }
 .home ul li{
     display: flex;
@@ -68,7 +86,7 @@ body{
 }
 .right{
     margin-top: 15px;
-    height: 95vh;
+    height: 100%;
 
 }
 .header{
@@ -83,9 +101,12 @@ body{
 .spotify-playlist{
     padding: 16px;
 }
+.spotify-playlist h1{
+    padding: 10px;
+}
 .card{
     width: 200px;
-    height: 300px;
+    height: 360px;
     border-radius: 5px;
     background-color: #252525;
     position: relative;
@@ -94,9 +115,9 @@ body{
 .card img{
     width: 90%;
     object-fit: contain;
-    margin-left: 10px;
+    margin-left: 14px;
     border-radius: 7px;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 .card h2{
     font-size: 20px;
@@ -128,6 +149,9 @@ body{
     opacity: 0;
 }
 
+.buttons{
+    display: flex;
+}
 .signupbtn{
     background-color: #333232;
     color: rgb(156, 148, 148);
@@ -162,18 +186,19 @@ body{
     position: fixed;
     bottom: 20px;
     background-color: #1fdf64;
-    width: 93%;
+    /* width: 93%; */
     padding: 12px;
-    width: 70vw;
+    width: 68vw;
     border-radius: 10px;
 }
 .seekbar{
     height: 2px;
-    width: 98%;
+    width: 96%;
     border: 2px solid black;
     border-radius: 5px;
     position: absolute;
     bottom: 2px;
+    cursor: pointer;
 }
 .circle{
     width: 13px;
@@ -191,6 +216,19 @@ body{
     gap: 18px;
     justify-content: center;
 }
+
+.songbuttons img {
+    width: 18px;
+    height: 18px;  /* reduce height */
+    filter: invert; /* keep icons white */
+    cursor: pointer;
+}
+
+.songbuttons img:hover {
+    transform: scale(1.15);
+    transition: 0.2s ease-in-out;
+}
+
 .songList{
     height: 460px;
     overflow: scroll;
@@ -226,6 +264,39 @@ body{
     width: 64px;
 }
 
+.songinfo,.songtime{
+    color: black;
+    padding: 0 10px;
+}
+.abovebar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.songinfo {
+    font-size: 13px; /* smaller text */
+}
+.songinfo {
+    color: black;
+    padding: 0 10px;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+    display: inline-block;
+}
+
+.songinfo:hover {
+    overflow: visible;
+    white-space: normal;
+    background: #1fdf64;
+    padding: 8px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 10;
+}
+
 /* Hide scrollbar for Chrome, Safari, Edge */
 ::-webkit-scrollbar {
     width: 0;
@@ -240,4 +311,93 @@ body {
 /* Hide scrollbar for Internet Explorer + old Edge */
 body {
     -ms-overflow-style: none;
+}
+
+.hamburger{
+    display: none;
+}
+.hamburgerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 700px) {
+    .left{
+        position: absolute;
+        left: -160%;
+        transition: all .3s;
+        z-index: 1;
+        width: 300px;
+        background-color: black;
+    }
+    .left .close{
+        position: absolute;
+        right: 20px;
+        top: 25px;
+        width: 29px;
+    }
+    .right {
+        width: 100vw;
+        margin-top: 0;
+    }
+    .playbar{
+        width: 83vw;
+    }
+    .hamburger{
+        display: block;
+    }
+    .songtime {
+        font-size: 9px;
+    }
+
+    .seekbar{
+        width: 90%;
+    }
+
+    .songinfo {
+        font-size: 10px;
+        max-width: 140px;
+    }
+    .card{
+        height: 385px;
+        width: 90vw;
+        justify-content: center;
+    }
+    .card img{
+        margin-left: 17px;
+        margin-right: 17px;
+    }
+    .abovebar{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .close{
+        display: block;
+    }
+    .timevol{
+        height: 15px;
+    }
+    .volume{
+        width: 50px;
+    }
+}
+
+@media (max-width: 1030px) {
+    .songinfo {
+        font-size: 12px;  /* smaller text */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 180px; /* adjust as needed */
+    }
+
+
+    .playnow img {
+        margin-left: -35px; /* <<< move icon slightly left */
+    }
+    .songList ul {
+        padding: 15px 0px;
+    }
 }
