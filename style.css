@@ -23,11 +23,14 @@ body{
     padding: 10px;
 }
 .right{
-    width: 71vw;
+    width: 73vw;
     position: relative;
 }
 
-
+.scroll{
+    height: 73vh;
+    overflow: scroll;
+}
 
 .timevol{
     display: flex;
@@ -108,6 +111,7 @@ body{
 }
 .spotify-playlist h1{
     padding: 10px;
+    font-size: 25px;
 }
 .card-wrapper {
     height: 300px;
@@ -195,15 +199,16 @@ body{
     display: flex;
 }
 
-/* wrapper */
 .scroll-wrapper {
     width: 100%;
     overflow-x: auto;
     padding: 10px 0;
+    scrollbar-width: none; 
 }
 
 /* scrolling flex container */
 .scroll-container {
+    
     display: flex;
     gap: 16px;
     width: max-content;
@@ -212,20 +217,25 @@ body{
 /* individual cards */
 .music-card {
     width: 150px;
-    height: 200px;
-    background-color: #181818;
-    border-radius: 12px;
+    height: 200px; 
+    border-radius: 88px;
     flex-shrink: 0;          /* prevents shrinking */
     padding: 10px;
     color: white;
     text-align: center;
 }
 
+.music-card:hover{
+    background-color: #181818;
+    cursor: pointer;
+    --a: 1;
+}
+
 .music-card img {
     width: 100%;
-    height: 130px;
+    height: 150px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 80px;
 }
 
 /* optional scrollbar styling */
