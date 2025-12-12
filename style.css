@@ -14,6 +14,7 @@ body{
     background-color: black;
     color: white;
 }
+
 .close{
     display: none;
 }
@@ -192,7 +193,10 @@ body{
     top: 145px;
     right: 15px;
     opacity: var(--a);
-    transition: all 1s ease-out;
+    transition: all 0.3s ease-out;
+}
+.artish .card img{
+    border-radius: 88px;
 }
 
 .buttons{
@@ -461,13 +465,12 @@ body {
         max-width: 140px;
     }
     .card{
-        height: 385px;
-        width: 90vw;
+        height: 280px;
+        width: 55vw;
         justify-content: center;
     }
     .card img{
-        margin-left: 17px;
-        margin-right: 17px;
+        margin-top: 6px;
     }
     .abovebar{
         flex-direction: column;
@@ -481,11 +484,6 @@ body {
     }
     .volume{
         width: 50px;
-    }
-    .card{
-        height: 385px;
-        width: 90vw;
-        justify-content: center;
     }
 }
 

@@ -5,6 +5,8 @@ let songs = [];
 let currentIndex = 0;
 let currentFolder = "cs"; // Default folder
 
+const BASE_URL = "https://spotifyclone.free.nf"; 
+
 // Convert seconds → mm:ss
 function secondToMinSec(seconds) {
     if (isNaN(seconds) || seconds < 0) return "00:00";
@@ -15,7 +17,7 @@ function secondToMinSec(seconds) {
 
 // Fetch all MP3 files dynamically based on selected folder
 async function getSongs(folder = "cs") {
-    const res = await fetch(`http://127.0.0.1:3000/songs/${folder}/`);
+    const res = await fetch(`/songs/${folder}/`);
     const html = await res.text();
 
 
@@ -69,7 +71,7 @@ function updatePlayButton() {
 function playMusic(trackFilename, pause = false) {
     if (!trackFilename) return;
 
-    currentSong.src = `http://127.0.0.1:3000/songs/${currentFolder}/` + encodeURIComponent(trackFilename);
+    currentSong.src = `/songs/${currentFolder}/${trackFilename}`;
 
     if (!pause) currentSong.play();
     updatePlayButton();
@@ -115,7 +117,7 @@ async function main(folder = "cs") {
 async function displayAlbums() {
     console.log("Displaying Albums…");
 
-    let root = await fetch("http://127.0.0.1:3000/songs/");
+    let root = await fetch("/songs/");
     let html = await root.text();
 
     let div = document.createElement("div");
@@ -136,7 +138,7 @@ async function displayAlbums() {
 
         try {
             // Fetch metadata
-            let metaReq = await fetch(`http://127.0.0.1:3000/songs/${folder}/info.json`);
+            let metaReq = await fetch(`/songs/${folder}/info.json`);
             let meta = await metaReq.json();
 
             // Add card HTML
@@ -145,7 +147,7 @@ async function displayAlbums() {
                     <div class="play">
                         <img src="play.svg" class="invert">
                     </div>
-                    <img src="http://127.0.0.1:3000/songs/${folder}/cover.jpg" alt="Album Cover">
+                    <img src="${BASE_URL}/songs/${folder}/cover.jpg" alt="Album Cover">
                     <h2>${meta.title}</h2>
                     <p>${meta.description}</p>
                 </div>
